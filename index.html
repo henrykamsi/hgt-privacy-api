@@ -210,6 +210,35 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
+        // --- 1. REMOTE CONFIG BRIDGE ---
+import { getRemoteConfig, getValue, fetchAndActivate } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-remote-config.js";
+
+const remoteConfig = getRemoteConfig(app);
+remoteConfig.settings.minimumFetchIntervalMillis = 3600000; // 1 hour
+
+// Safe default values if Firebase is down or loading
+const defaultConfig = {
+    "primary_color": "#2563eb",
+    "welcome_text": "Welcome to HGT Policy Pro"
+};
+remoteConfig.defaultConfig = defaultConfig;
+
+// Apply the config
+async function initializeRemoteConfig() {
+    try {
+        await fetchAndActivate(remoteConfig);
+        const color = getValue(remoteConfig, 'primary_color').asString();
+        const text = getValue(remoteConfig, 'welcome_text').asString();
+        
+        // Update UI
+        document.documentElement.style.setProperty('--primary-color', color);
+        const welcomeHead = document.querySelector('h1.text-3xl');
+        if(welcomeHead) welcomeHead.innerText = text;
+    } catch (e) {
+        console.log("Using local defaults.");
+    }
+}
+initializeRemoteConfig();
 
         // --- VIEWER ROUTING ---
         const urlParams = new URLSearchParams(window.location.search);
