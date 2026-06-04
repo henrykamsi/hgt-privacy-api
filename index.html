@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Henry Global Tech - Professional Privacy Policy Generator">
+    
+    <title>HGT Policy Generator | Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <style>
+        .step-content { display: none; }
+        .step-content.active { display: block; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        @keyframes rainbow-spin {
+            0% { border-top-color: #3b82f6; transform: rotate(0deg); }
+            25% { border-top-color: #ef4444; transform: rotate(90deg); }
+            50% { border-top-color: #22c55e; transform: rotate(180deg); }
+            75% { border-top-color: #eab308; transform: rotate(270deg); }
+            100% { border-top-color: #3b82f6; transform: rotate(360deg); }
+        }
+        .rainbow-spinner { width: 60px; height: 60px; border: 6px solid rgba(255,255,255,0.1); border-radius: 50%; animation: rainbow-spin 1.5s linear infinite; }
+        .auth-spinner { width: 40px; height: 40px; border: 4px solid rgba(59, 130, 246, 0.1); border-top-color: #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes slide-in-out { 0% { opacity: 0; transform: translateX(-30px); } 15% { opacity: 1; transform: translateX(0); } 85% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; transform: translateX(30px); } }
+        .slide-text { animation: slide-in-out 2s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen font-sans transition-colors duration-300 flex flex-col">
+
+    <!-- GLOBAL APP HEADER -->
+    <header class="w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 p-4 sticky top-0 z-30 shadow-sm flex items-center justify-center">
+        <h1 class="text-xl font-bold text-blue-600 dark:text-blue-500">Henry Global Tech Policy Pro</h1>
+    </header>
+
+    <!-- PUBLIC POLICY VIEWER -->
+    <div id="public-policy-view" class="hidden flex-1 p-4 md:p-6 w-full max-w-4xl mx-auto flex-col pb-20">
+        <div class="bg-white dark:bg-slate-900 p-6 md:p-10 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800">
+            <!-- Legal Content -->
+            <div id="public-policy-content" class="text-sm leading-relaxed space-y-4 mb-8">
+                Loading document...
+            </div>
+            
+            <!-- Standard Copyright Footer -->
+            <div class="text-center text-xs font-semibold text-slate-500 mt-8 pt-4 border-t border-slate-200 dark:border-slate-700">
+                All rights reserved by Henry global tech industry
+            </div>
+        </div>
+
+        <!-- AdSense Advertisement Space -->
+        <div class="mt-8 w-full bg-slate-100 dark:bg-slate-800 border-2 border-dashed border-slate-400 dark:border-slate-600 rounded-xl p-8 flex flex-col items-center justify-center min-h-[150px]">
+            <span class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
+            <!-- Insert your Google AdSense code below this line in the future -->
+            
+        </div>
+
+        <!-- HGT Branding & Call to Action -->
+        <div class="mt-12 mb-8 text-center px-4">
+            <p class="text-xs md:text-sm font-bold text-slate-500 dark:text-slate-400 mb-6 uppercase tracking-wide">
+                THIS PRIVACY POLICY WAS GENERATED UNDER THE BRAND OF HENRY GLOBAL TECH INDUSTRY (HGT)
+            </p>
+            <a href="/" class="inline-block w-full md:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-blue-500/30 transition-all transform hover:-translate-y-1">
+                Create Your Own Privacy Policy
+            </a>
+        </div>
+    </div>
+
+    <!-- AUTHENTICATION SCREEN -->
+    <div id="auth-screen" class="hidden flex-1 flex flex-col items-center justify-center px-4 py-8 relative">
+        <div class="w-full max-w-md bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 text-center">
+            <h1 class="text-3xl font-bold text-blue-600 mb-2">Welcome</h1>
+            <p class="text-slate-500 mb-8">Sign in to generate professional legal documents.</p>
+            
+            <button id="btn-google-auth" type="button" class="w-full flex items-center justify-center gap-3 bg-white dark:bg-slate-800 text-slate-700 dark:text-white border border-slate-300 dark:border-slate-700 py-4 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition shadow-sm">
+                <svg class="w-6 h-6" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                Continue with Google
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN APP DASHBOARD -->
+    <div id="main-app" class="hidden flex-1 flex-col relative pb-28">
+
+        <!-- 12-SECOND LOADING OVERLAY -->
+        <div id="loading-overlay" class="hidden fixed inset-0 bg-white/95 dark:bg-slate-950/95 z-50 flex flex-col items-center justify-center backdrop-blur-md">
+            <div class="rainbow-spinner mb-8"></div>
+            <p id="loading-text" class="text-2xl font-bold text-blue-500 slide-text">Initializing...</p>
+        </div>
+
+        <!-- TAB 1: CREATE -->
+        <div id="create-tab" class="tab-content active p-6 max-w-3xl mx-auto w-full">
+            <h2 class="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">Build Privacy Policy</h2>
+            <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 mb-8">
+                <div id="progress-bar" class="bg-blue-500 h-2 rounded-full transition-all duration-500" style="width: 33%"></div>
+            </div>
+
+            <input type="hidden" id="edit-policy-id" value="">
+
+            <form id="policyForm">
+                <div id="step-1" class="step-content active space-y-4">
+                    <input id="q1" type="text" placeholder="1. Company/App Name" class="val-1 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg outline-none">
+                    <input id="q2" type="url" placeholder="2. Website URL" class="val-1 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg outline-none">
+                    <input id="q3" type="email" placeholder="3. Support Email" class="val-1 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg outline-none">
+                    <select id="q4" class="val-1 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">4. Collect Personal Info?</option><option value="yes">Yes</option><option value="no">No</option></select>
+                    <select id="q5" class="val-1 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">5. Collect Device/IP Data?</option><option value="yes">Yes</option><option value="no">No</option></select>
+                    <button type="button" id="btn-next-1" disabled class="w-full bg-slate-400 dark:bg-slate-700 text-slate-200 py-4 rounded-xl font-bold text-lg mt-6 opacity-50 cursor-not-allowed transition-all">Next Step</button>
+                </div>
+
+                <div id="step-2" class="step-content space-y-4">
+                    <select id="q6" class="val-2 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">6. Use Cookies?</option><option value="yes">Yes</option><option value="no">No</option></select>
+                    <select id="q7" class="val-2 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">7. Use Google Analytics?</option><option value="yes">Yes</option><option value="no">No</option></select>
+                    <select id="q8" class="val-2 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">8. Show Ads (AdSense)?</option><option value="yes">Yes</option><option value="no">No</option></select>
+                    <select id="q9" class="val-2 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">9. Process Payments?</option><option value="yes">Yes</option><option value="no">No</option></select>
+                    <select id="q10" class="val-2 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">10. Sell Data?</option><option value="no">No</option><option value="yes">Yes</option></select>
+                    <div class="flex gap-4 mt-6">
+                        <button type="button" id="btn-back-1" class="w-1/3 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white py-4 rounded-xl font-bold text-lg">Back</button>
+                        <button type="button" id="btn-next-2" disabled class="w-2/3 bg-slate-400 dark:bg-slate-700 text-slate-200 py-4 rounded-xl font-bold text-lg opacity-50 cursor-not-allowed transition-all">Next Step</button>
+                    </div>
+                </div>
+
+                <div id="step-3" class="step-content space-y-4">
+                    <select id="q11" class="val-3 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">11. Users create accounts?</option><option value="yes">Yes</option><option value="no">No</option></select>
+                    <select id="q12" class="val-3 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">12. Directed at under 13?</option><option value="no">No</option><option value="yes">Yes</option></select>
+                    <select id="q13" class="val-3 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">13. Send marketing emails?</option><option value="yes">Yes</option><option value="no">No</option></select>
+                    <select id="q14" class="val-3 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">14. Comply with GDPR/CCPA?</option><option value="yes">Yes</option><option value="no">No</option></select>
+                    <select id="q15" class="val-3 w-full p-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg"><option value="">15. Data retention policy?</option><option value="standard">Standard</option><option value="specific">Until deletion</option></select>
+                    <div class="flex gap-4 mt-6">
+                        <button type="button" id="btn-back-2" class="w-1/3 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white py-4 rounded-xl font-bold text-lg">Back</button>
+                        <button type="button" id="btn-generate" disabled class="w-2/3 bg-slate-400 dark:bg-slate-700 text-slate-200 py-4 rounded-xl font-bold text-lg opacity-50 cursor-not-allowed transition-all">Generate Policy</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- TAB 2: POLICIES -->
+        <div id="policies-tab" class="tab-content p-6 max-w-3xl mx-auto w-full">
+            <h2 class="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">My Saved Policies</h2>
+            <div id="policies-container" class="space-y-6">
+                <p class="text-slate-500 text-center">Loading policies...</p>
+            </div>
+        </div>
+
+        <!-- TAB 3: SETTINGS -->
+        <div id="me-tab" class="tab-content p-6 max-w-3xl mx-auto w-full">
+            <h2 class="text-2xl font-bold mb-6 text-slate-800 dark:text-slate-100">Account Settings</h2>
+            
+            <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-300 dark:border-slate-800 mb-6">
+                
+                <div class="flex items-center gap-4 mb-6 border-b border-slate-200 dark:border-slate-700 pb-6">
+                    <img id="profile-pic" src="https://via.placeholder.com/150" alt="Profile" class="w-16 h-16 rounded-full shadow-md object-cover border-2 border-blue-500">
+                    <div>
+                        <h3 class="font-semibold text-lg" id="profile-display-name">Loading...</h3>
+                        <p id="profile-email-display" class="text-sm text-slate-500">loading@email.com</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex gap-2">
+                        <div class="flex-1">
+                            <label class="text-xs text-slate-500 uppercase font-bold mb-1 block">First Name</label>
+                            <input type="text" id="profile-fname" class="w-full p-3 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg outline-none focus:border-blue-500">
+                        </div>
+                        <div class="flex-1">
+                            <label class="text-xs text-slate-500 uppercase font-bold mb-1 block">Surname</label>
+                            <input type="text" id="profile-sname" class="w-full p-3 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg outline-none focus:border-blue-500">
+                        </div>
+                    </div>
+                    <button id="btn-save-profile" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl font-bold transition mt-2">Update Profile</button>
+                </div>
+            </div>
+
+            <!-- Appearance Section -->
+            <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-300 dark:border-slate-800 mb-6 flex justify-between items-center">
+                <span class="font-medium">Dark Mode</span>
+                <button id="toggle-theme" class="w-14 h-8 bg-blue-600 rounded-full relative transition-colors"><div class="w-6 h-6 bg-white rounded-full absolute top-1 right-1 transition-transform"></div></button>
+            </div>
+            
+            <div class="border-t-2 border-red-500/50 pt-6">
+                <button id="btn-logout" class="w-full bg-red-600/10 text-red-500 border border-red-500 hover:bg-red-600 hover:text-white py-3 rounded-xl font-bold transition">Sign Out</button>
+            </div>
+        </div>
+
+        <!-- BOTTOM NAV -->
+        <nav class="fixed bottom-0 left-0 w-full bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 flex justify-around p-3 z-40 pb-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+            <button id="nav-create" class="flex flex-col items-center text-blue-600 font-medium"><svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>Create</button>
+            <button id="nav-policies" class="flex flex-col items-center text-slate-400 hover:text-blue-500 transition"><svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>Policies</button>
+            <button id="nav-me" class="flex flex-col items-center text-slate-400 hover:text-blue-500 transition"><svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>Settings</button>
+        </nav>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+        import { getFirestore, collection, addDoc, doc, setDoc, getDocs, query, where, deleteDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDordk0nIVI3H4Ev0JW8fH2Pe_WyfuDtMo",
+            authDomain: "privacy-policy-b6980.firebaseapp.com",
+            projectId: "privacy-policy-b6980",
+            storageBucket: "privacy-policy-b6980.firebasestorage.app",
+            messagingSenderId: "136019833914",
+            appId: "1:136019833914:web:a0326a7b93d30dd9f9f103"
+        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // --- VIEWER ROUTING ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const sharedPolicyId = urlParams.get('policy');
+        
+        if (sharedPolicyId) {
+            document.getElementById('auth-screen').classList.add('hidden');
+            document.getElementById('main-app').classList.add('hidden');
+            document.getElementById('public-policy-view').classList.remove('hidden');
+            document.getElementById('public-policy-view').classList.add('flex');
+            
+            getDoc(doc(db, "global_policies", sharedPolicyId)).then(snapshot => {
+                if(snapshot.exists()) {
+                    document.getElementById('public-policy-content').innerHTML = snapshot.data().html;
+                } else {
+                    document.getElementById('public-policy-content').innerHTML = "<p class='text-red-500 font-bold'>Error 404: Document not found.</p>";
+                }
+            });
+        }
+
+        if(!sharedPolicyId) {
+            
+            // --- AUTHENTICATION ---
+            const btnGoogle = document.getElementById('btn-google-auth');
+            
+            btnGoogle.addEventListener('click', () => {
+                const provider = new GoogleAuthProvider();
+                signInWithPopup(auth, provider).catch(err => alert("Sign In Error: " + err.message));
+            });
+
+            onAuthStateChanged(auth, async (user) => {
+                const authView = document.getElementById('auth-screen');
+                const appView = document.getElementById('main-app');
+                
+                if (user) {
+                    authView.classList.add('hidden'); authView.classList.remove('flex');
+                    appView.classList.remove('hidden'); appView.classList.add('flex');
+                    loadMyPolicies();
+                    
+                    // Setup Settings Profile
+                    document.getElementById('profile-email-display').innerText = user.email;
+                    document.getElementById('profile-display-name').innerText = user.displayName || "User";
+                    if(user.photoURL) document.getElementById('profile-pic').src = user.photoURL;
+                    
+                    try {
+                        const userDoc = await getDoc(doc(db, "users", user.uid));
+                        if(userDoc.exists()) {
+                            document.getElementById('profile-fname').value = userDoc.data().firstName || "";
+                            document.getElementById('profile-sname').value = userDoc.data().surname || "";
+                        }
+                    } catch(e) { } // Ignore read errors on first login
+                    
+                } else {
+                    appView.classList.add('hidden'); appView.classList.remove('flex');
+                    authView.classList.remove('hidden'); authView.classList.add('flex');
+                }
+            });
+
+            document.getElementById('btn-logout').addEventListener('click', () => signOut(auth));
+
+            document.getElementById('btn-save-profile').addEventListener('click', async () => {
+                const f = document.getElementById('profile-fname').value.trim();
+                const s = document.getElementById('profile-sname').value.trim();
+                await setDoc(doc(db, "users", auth.currentUser.uid), { firstName: f, surname: s }, { merge: true });
+                alert("Profile Updated!");
+            });
+
+            // --- NAVIGATION ---
+            function switchTab(tabId, btnId) {
+                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+                document.querySelectorAll('nav button').forEach(b => { b.classList.remove('text-blue-600'); b.classList.add('text-slate-400'); });
+                document.getElementById(btnId).classList.add('text-blue-600'); document.getElementById(btnId).classList.remove('text-slate-400');
+            }
+            document.getElementById('nav-create').addEventListener('click', () => switchTab('create-tab', 'nav-create'));
+            document.getElementById('nav-policies').addEventListener('click', () => { switchTab('policies-tab', 'nav-policies'); loadMyPolicies(); });
+            document.getElementById('nav-me').addEventListener('click', () => switchTab('me-tab', 'nav-me'));
+
+            // --- INPUT VALIDATION & UI ---
+            function checkInputs(className, btnId) {
+                const inputs = document.querySelectorAll(`.${className}`);
+                let ok = true; inputs.forEach(i => { if (i.value.trim() === '') ok = false; });
+                const btn = document.getElementById(btnId);
+                btn.disabled = !ok;
+                if(ok) { btn.classList.remove('bg-slate-400', 'opacity-50'); btn.classList.add('bg-blue-600', 'text-white'); } 
+                else { btn.classList.add('bg-slate-400', 'opacity-50'); btn.classList.remove('bg-blue-600'); }
+            }
+            document.querySelectorAll('.val-1').forEach(i => i.addEventListener('input', () => checkInputs('val-1', 'btn-next-1')));
+            document.querySelectorAll('.val-2').forEach(i => i.addEventListener('input', () => checkInputs('val-2', 'btn-next-2')));
+            document.querySelectorAll('.val-3').forEach(i => i.addEventListener('input', () => checkInputs('val-3', 'btn-generate')));
+
+            document.getElementById('btn-next-1').addEventListener('click', () => {
+                document.getElementById('step-1').classList.remove('active'); document.getElementById('step-2').classList.add('active');
+                document.getElementById('progress-bar').style.width = '66%';
+            });
+            document.getElementById('btn-back-1').addEventListener('click', () => {
+                document.getElementById('step-2').classList.remove('active'); document.getElementById('step-1').classList.add('active');
+                document.getElementById('progress-bar').style.width = '33%';
+            });
+            document.getElementById('btn-next-2').addEventListener('click', () => {
+                document.getElementById('step-2').classList.remove('active'); document.getElementById('step-3').classList.add('active');
+                document.getElementById('progress-bar').style.width = '100%';
+            });
+            document.getElementById('btn-back-2').addEventListener('click', () => {
+                document.getElementById('step-3').classList.remove('active'); document.getElementById('step-2').classList.add('active');
+                document.getElementById('progress-bar').style.width = '66%';
+            });
+
+            // --- DYNAMIC LEGAL ENGINE ---
+            document.getElementById('btn-generate').addEventListener('click', () => {
+                const overlay = document.getElementById('loading-overlay');
+                overlay.classList.remove('hidden');
+                
+                setTimeout(async () => {
+                    const data = []; for(let i=1; i<=15; i++) { data.push(document.getElementById('q'+i).value); }
+                    const cName = data[0], url = data[1], email = data[2];
+                    
+                    // The Rich Logic Text Engine
+                    let htmlString = `
+                        <h2 class="text-2xl font-bold text-blue-600 mb-4 border-b pb-2">Privacy Policy for ${cName}</h2>
+                        <p class="mb-6"><strong>Effective Date:</strong> Generated on ${new Date().toLocaleDateString()}</p>
+                        
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">1. Information Collection</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[3] === 'yes' ? 'We collect personal information that you voluntarily provide to us when you register on the Application, express an interest in obtaining information about us or our products, or when you contact us. The personal information we collect may include names, email addresses, phone numbers, billing addresses, and other similar contact data necessary to fulfill your requests.' : 'We do not collect, store, or process any personally identifiable information (PII) such as names, phone numbers, or physical addresses. Your privacy is paramount, and our platform is engineered to function entirely without the extraction of personal credentials.'}
+                        </p>
+
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">2. Device & Technical Data</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[4] === 'yes' ? 'We automatically collect certain information when you visit, use, or navigate the platform. This information does not reveal your specific identity but may include device and usage information, such as your IP address, browser characteristics, operating system, language preferences, referring URLs, device name, country, location, and other technical metadata.' : 'Our systems do not log or track your hardware signatures, network Internet Protocol (IP) addresses, or browser footprints. We respect your anonymity, and your technical device configuration remains completely isolated on your local machine.'}
+                        </p>
+
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">3. Cookies & Tracking Technologies</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[5] === 'yes' ? 'We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. These essential cookies help us secure our platform, understand user preferences, and optimize your browsing experience by maintaining your active sessions.' : 'This platform operates entirely without the implementation of tracking cookies, tracking pixels, or local storage persistence. No data files are planted on your machine to monitor or remember your history across web sessions.'}
+                        </p>
+
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">4. Analytics & Behavioral Monitoring</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[6] === 'yes' ? 'We partner with selected third-party vendors, such as Google Analytics, to allow tracking technologies and remarketing services on the platform through the use of first-party cookies and third-party cookies. This data allows us to analyze and track usage behavior to systematically improve our performance.' : 'We do not utilize Google Analytics or any secondary behavioral metrics software. Your interactions, click patterns, and duration parameters on this application are not cataloged, profiled, or reported to any analytics dashboard.'}
+                        </p>
+
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">5. Advertisements</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[7] === 'yes' ? 'We use third-party advertising companies to serve ads when you visit the platform. These companies, including Google AdSense, may use information about your visits to this and other websites contained in web cookies in order to provide advertisements about goods and services of interest to you.' : 'Our platform is 100% ad-free and contains no monetization hooks from Google AdSense or alternative ad networks. Users will never be subjected to behavioral targeting, sponsored banners, or tracking scripts associated with corporate ad vendors.'}
+                        </p>
+
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">6. Financial Transactions</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[8] === 'yes' ? 'We may provide paid products and/or services within the Application. In that case, we use third-party services for payment processing. We will not store or collect your payment card details. That information is provided directly to our third-party payment processors whose use of your personal information is governed by their Privacy Policy.' : 'We do not process commercial financial transactions, premium subscriptions, or bank card checkouts. Because our application handles no financial entries, there is zero risk of credit card exposure or transaction history storage.'}
+                        </p>
+
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">7. Data Selling & Sharing</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[9] === 'yes' ? 'We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company, or with strategic corporate partners who align with our operational metrics.' : 'We maintain a strict zero-monetization policy regarding user records. We do not sell, rent, trade, or lease any data matrices to third-party data brokers, marketing agencies, or corporate entities. Your data belongs exclusively to you.'}
+                        </p>
+                        
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">8. Account Registrations</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[10] === 'yes' ? 'To access specific locked modules of this application, users are required to establish an authorized account credential. During registration, account profiles are generated securely, and it remains the user\'s responsibility to guard their login authentication vectors safely.' : 'No user sign-up, registration, or profile generation is requested to interact with our platform. You are free to utilize all utilities anonymously without deploying an email credential or password configuration.'}
+                        </p>
+
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">9. Children's Privacy</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[11] === 'yes' ? 'We intentionally collect data from children under the age of 13 in strict accordance with parental consent requirements. We maintain stringent protection guardrails to ensure that any data interacting with minors is handled under severe privacy settings and absolute security.' : 'We do not knowingly solicit data from or market to children under 13 years of age. By using the platform, you represent that you are at least 13 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the platform.'}
+                        </p>
+
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">10. Communications & Marketing</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[12] === 'yes' ? 'We may use your personal information to send you newsletters, marketing or promotional materials, and other information that may be of interest to you. You may opt-out of receiving any, or all, of these communications from us by following the unsubscribe link provided in any email we send.' : 'We do not deploy marketing campaigns, promotional email sequences, or automated newsletters. Your registered email structure will only ever be engaged for critical structural updates or immediate technical support.'}
+                        </p>
+
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">11. Global Compliance Frameworks</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[13] === 'yes' ? 'We ensure full regulatory alignment with the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA). Users retain the absolute right to access, rectify, restrict, or erase their individual data records upon direct verification request to our administration.' : 'While we treat all data with standard security protocols, this interface does not operate under specific territorial frameworks like GDPR or CCPA localized metrics. Data treatment is executed under standard global web protocols.'}
+                        </p>
+
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 mb-2">12. Data Retention Parameters</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">
+                            ${data[14] === 'standard' ? 'We will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies.' : 'Your data matrices remain bound explicitly to the lifecycle of your active account. The moment you initiate an account termination protocol, all underlying records, compiled policies, and profile datasets are purged permanently from our database servers within standard cycle times.'}
+                        </p>
+
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mt-6 border-t pt-4">Contact Information</h3>
+                        <p class="mb-4 text-slate-600 dark:text-slate-300">If you have any questions about this policy, please contact us at: <a href="mailto:${email}" class="text-blue-500 hover:underline">${email}</a> or visit <a href="${url}" class="text-blue-500 hover:underline">${url}</a>.</p>
+                    `;
+
+                    try {
+                        const editId = document.getElementById('edit-policy-id').value;
+                        if(editId) {
+                            await updateDoc(doc(db, "global_policies", editId), { html: htmlString, rawData: data });
+                        } else {
+                            await addDoc(collection(db, "global_policies"), {
+                                uid: auth.currentUser.uid,
+                                company: cName,
+                                html: htmlString,
+                                rawData: data,
+                                createdAt: new Date()
+                            });
+                        }
+
+                        overlay.classList.add('hidden');
+                        document.getElementById('policyForm').reset();
+                        document.getElementById('edit-policy-id').value = "";
+                        document.getElementById('step-3').classList.remove('active');
+                        document.getElementById('step-1').classList.add('active');
+                        document.getElementById('progress-bar').style.width = '33%';
+                        
+                        switchTab('policies-tab', 'nav-policies');
+                        loadMyPolicies();
+
+                    } catch (err) {
+                        overlay.classList.add('hidden');
+                        alert("Database Error: " + err.message);
+                    }
+                }, 3000);
+            });
+
+            // --- POLICIES RENDERER ---
+            window.loadMyPolicies = async function() {
+                if(!auth.currentUser) return;
+                const container = document.getElementById('policies-container');
+                container.innerHTML = '<div class="auth-spinner mx-auto mt-10"></div>';
+                
+                try {
+                    const q = query(collection(db, "global_policies"), where("uid", "==", auth.currentUser.uid));
+                    const querySnapshot = await getDocs(q);
+                    
+                    if(querySnapshot.empty) {
+                        container.innerHTML = '<p class="text-slate-500 text-center p-8 bg-slate-100 dark:bg-slate-800 rounded-xl">No policies found. Create your first one!</p>';
+                        return;
+                    }
+
+                    container.innerHTML = '';
+                    const baseURL = window.location.origin + window.location.pathname;
+
+                    querySnapshot.forEach((docSnap) => {
+                        const pol = docSnap.data();
+                        const docId = docSnap.id;
+                        const shareLink = `${baseURL}?policy=${docId}`;
+
+                        const card = document.createElement('div');
+                        card.className = "bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl p-5 shadow-sm";
+                        card.innerHTML = `
+                            <div class="mb-4 bg-slate-50 dark:bg-slate-950 p-4 rounded-lg border border-slate-200 dark:border-slate-800 text-sm h-48 overflow-y-auto">
+                                ${pol.html}
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+                                <a href="${shareLink}" target="_blank" class="flex-1 bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-500 py-2 rounded-lg font-medium text-sm text-center hover:bg-green-200">Open</a>
+                                <button onclick="copyPolicy('${shareLink}')" class="flex-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 py-2 rounded-lg font-medium text-sm hover:bg-slate-300">Copy Link</button>
+                                <button onclick="editPolicy('${docId}', '${encodeURIComponent(JSON.stringify(pol.rawData))}')" class="flex-1 bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-500 py-2 rounded-lg font-medium text-sm hover:bg-amber-200">Edit</button>
+                                <button onclick="deletePolicy('${docId}')" class="flex-1 bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-500 py-2 rounded-lg font-medium text-sm hover:bg-red-200">Delete</button>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                    });
+                } catch(e) {}
+            }
+
+            // Global Actions
+            window.copyPolicy = (link) => { navigator.clipboard.writeText(link).then(() => alert("Link copied!")); };
+            window.deletePolicy = async (id) => {
+                if(confirm("Permanently delete this document?")) {
+                    await deleteDoc(doc(db, "global_policies", id)); loadMyPolicies();
+                }
+            };
+            window.editPolicy = (id, rawDataStr) => {
+                const data = JSON.parse(decodeURIComponent(rawDataStr));
+                document.getElementById('edit-policy-id').value = id;
+                for(let i=0; i<15; i++) { if(document.getElementById('q'+(i+1))) document.getElementById('q'+(i+1)).value = data[i]; }
+                switchTab('create-tab', 'nav-create');
+            };
+
+            // Theme Toggle
+            let dark = true;
+            document.getElementById('toggle-theme').addEventListener('click', (e) => {
+                dark = !dark;
+                document.documentElement.classList.toggle('dark', dark);
+                e.currentTarget.children[0].style.transform = dark ? 'translateX(0)' : 'translateX(-24px)';
+                e.currentTarget.classList.toggle('bg-blue-600', dark); e.currentTarget.classList.toggle('bg-slate-300', !dark);
+            });
+        }
+    </script>
+</body>
+</html>
